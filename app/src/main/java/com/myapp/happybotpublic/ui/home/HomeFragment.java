@@ -27,8 +27,6 @@ import static android.app.Activity.RESULT_OK;
 
 public class HomeFragment extends Fragment
 {
-
-    private HomeViewModel homeViewModel;
     private static final int VOICE_RECOGNITION_REQUEST_CODE = 1001;
     private ListView mList;
     private ArrayList<String> arrayList;
@@ -37,7 +35,6 @@ public class HomeFragment extends Fragment
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
 
@@ -66,6 +63,9 @@ public class HomeFragment extends Fragment
 
                 mAdapter.notifyDataSetChanged();
                 editText.setText("");
+
+                //  David. To Do: After the user sends a message by text, the text will appear in the list view of the page.
+                // Here is where you should call the database and output the most suitable reply.
 
 
             }
@@ -126,8 +126,10 @@ public class HomeFragment extends Fragment
 
                     // add the text in the arrayList
                     arrayList.add("You: " + searchQuery);
-
                     mAdapter.notifyDataSetChanged();
+
+                    // David. To Do: After the user sends a message by voice, the text will appear in the list view of the page.
+                    // Here is where you should call the database and output the most suitable reply.
 
                 }
                 // Result code for various error.
